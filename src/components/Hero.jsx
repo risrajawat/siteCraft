@@ -33,7 +33,7 @@ const Hero = () => {
         builder — all in just a few clicks.
       </motion.h2>
       <div id='generate' className="pt-30  mt-[-55px]">
-        <Generate></Generate>
+        <Generate/>
       </div>
       </div>
     </section>

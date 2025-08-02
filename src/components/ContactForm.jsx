@@ -13,7 +13,7 @@ export default function ContactForm() {
     <section id="contact" className="pt-20 pb-8 px-6 relative ">
       <div className="max-w-4xl mx-auto ">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-6 text-shadow-lg">
-          📬 Contact Me
+          📬 Contact Us
         </h2>
         <h4 className="text-center text-xl text-shadow-sm mb-5 text-zinc-800 font-normal">
           Get the latest updates and tips about building <br /> amazing website
@@ -51,7 +51,7 @@ export default function ContactForm() {
           <div className='absolute left-[50%] top-[82%] translate-x-[-50%]'>
             <button
               type="submit"
-              className=" bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-600  active:scale-101 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+              className="cursor-pointer bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-600 hover:shadow-2xl hover:scale-102 active:scale-101 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
             >
               Send Message
             </button>

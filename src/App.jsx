@@ -15,17 +15,17 @@ const App = () => {
   return (
     <>
       {load && (
-        <div className="bg-gradient-to-r from-pink-400 via-yellow-300 to-green-400">
+        <div className="bg-gradient-to-r from-violet-400 via-yellow-300 to-pink-400">
           <Navbar />
           <Hero />
           <div id="guide">
-            <Guide></Guide>
+            <Guide/>
           </div>
           <div id='feature'>
             <Features />
           </div>
           <div id='about'>
-            <About></About>
+            <About/>
           </div>
           <Footer />
         </div>

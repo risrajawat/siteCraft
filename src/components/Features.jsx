@@ -52,7 +52,7 @@ function Features() {
     },
   ];
   return (
-    <div className="bg-gradient-to-r from-pink-400 via-yellow-300 to-green-400 pt-22">
+    <div className="bg-gradient-to-r from-pink-400 via-yellow-300 to-violet-400 pt-22">
       <h1 className="font-Poppins text-5xl text-center text-gray-700 font-bold text-shadow-md ">
         Powerful Features
       </h1>
