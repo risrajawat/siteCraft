@@ -5,7 +5,7 @@ const About = () => {
     <div className="pt-22">
       <h1 className="text-center text-4xl font-bold text-gray-700">
         About{" "}
-        <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-600 font-bold bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r to-blue-600 via-indigo-500 from-purple-500 font-bold bg-clip-text text-transparent">
           siteCraft
         </span>
       </h1>
