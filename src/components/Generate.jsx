@@ -1,15 +1,29 @@
 import React, { useState } from "react";
+import { generateWebsite } from "../utils/aiService";
 
 function Generate() {
   const [val, setVal] = useState(false);
   const [tex, setTex] = useState("");
+  const [output, setOutput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (tex.trim().length === 0) {
       alert("Please Enter Something");
     } else {
       setVal(true);
-      setTex("");
+      setLoading(true);
+
+      try {
+        const aiResponse = await generateWebsite(tex);
+        setOutput(aiResponse);
+      } catch (error) {
+        console.log(error);
+        setOutput("Failed to generate website, try again");
+      } finally {
+        setLoading(false);
+        setTex("");
+      }
     }
   };
   const suggestions = [
@@ -40,9 +54,10 @@ function Generate() {
             />
             <button
               onClick={() => handleClick()}
+              disabled={loading}
               className="cursor-pointer bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-400 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-2xl hover:scale-102 transform transition-all duration-300 hover:from-purple-600 hover:via-indigo-600 hover:to-blue-500 whitespace-nowrap w-fit"
             >
-              Generate Website ✨
+              {loading ? "Generating..." : "Generate Website ✨"}
             </button>
             <div className="max-w-2xl mx-auto">
               {/* baaki ka JSX */}
@@ -87,12 +102,18 @@ function Generate() {
 
             {/* Website Preview Content */}
             <div className="bg-[#746f6f]  rounded-lg p-8 h-64 flex items-center justify-center">
-              <div className="text-center animate-pulse ">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mx-auto mb-4"></div>
-                <div className="h-4 bg-[#a19999] rounded w-32 mx-auto mb-2"></div>
-                <div className="h-3 bg-[#a59b9b] rounded w-48 mx-auto mb-2"></div>
-                <div className="h-3 bg-[#b4a7a7] rounded w-24 mx-auto"></div>
-              </div>
+              {loading ? (
+                <div className="text-center animate-pulse ">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mx-auto mb-4"></div>
+                  <div className="h-4 bg-[#a19999] rounded w-32 mx-auto mb-2"></div>
+                  <div className="h-3 bg-[#a59b9b] rounded w-48 mx-auto mb-2"></div>
+                  <div className="h-3 bg-[#b4a7a7] rounded w-24 mx-auto"></div>
+                </div>
+              ) : (
+                <pre className="text-white text-sm whitespace-pre-wrap text-left">
+                  {output}
+                </pre>
+              )}
             </div>
           </div>
         </div>
